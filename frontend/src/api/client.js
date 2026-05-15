@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:8000/api';
+// In production, VITE_API_URL will point to your Railway backend URL.
+// In local dev, it falls back to localhost:8000.
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 const client = axios.create({ baseURL: API_BASE, headers: { 'Content-Type': 'application/json' } });
 
